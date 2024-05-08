@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form id="myForm" name="myForm" enctype="multipart/form-data">
+    <div>
+      <label for="username">Enter name:</label>
+      <input type="text" id="username" name="username" />
+    </div>
+    <div>
+      <label for="useracc">Enter account number:</label>
+      <input type="text" id="useracc" name="useracc" />
+    </div>
+    <div>
+      <label for="userfile">Upload file:</label>
+      <input type="file" id="userfile" name="userfile" />
+    </div>
+    <input type="submit" value="Submit!" class="submit" />
+  </form>
+  <script>
+    let submitButton = document.querySelector('.submit')
+    submitButton.onclick = (e) => {
+      e.preventDefault();
+      var myForm = document.getElementById("myForm");
+      formData = new FormData(myForm);
+      console.log('formdata', formData);
+      console.log('myform', myForm);
+      let usernameValue = formData.get("username");
+      let useraccValue = formData.get("useracc");
+      console.log(formData.values());
+      //显示值
+      for (var value of formData.values()) {
+        console.log(value);
+      }
+    }
+  </script>
+</body>
+
+</html>
